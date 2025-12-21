@@ -5,33 +5,32 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Models\BookModel;
 use App\Models\CategoryModel;
+use App\Models\AdminModel;
 
 class Dashboard extends BaseController
 {
     protected $bookModel;
     protected $categoryModel;
+    protected $adminModel;
 
     public function __construct()
     {
         $this->bookModel = new BookModel();
         $this->categoryModel = new CategoryModel();
+        $this->adminModel = new AdminModel();
     }
 
-    /**
-     * Dashboard principal do admin
-     */
     public function index()
     {
+        // Busca dados do banco
         $data = [
-            'title' => 'Dashboard - Admin',
-            'totalBooks' => $this->bookModel->countAll(),
-            'activeBooks' => $this->bookModel->where('status', 'active')->countAllResults(),
-            'totalCategories' => $this->categoryModel->countAll(),
-            'recentBooks' => $this->bookModel->orderBy('created_at', 'DESC')->limit(5)->findAll()
+            'page_title' => 'Dashboard',
+            'total_books' => $this->bookModel->countAll(),
+            'total_categories' => $this->categoryModel->countAll(),
+            'total_users' => $this->adminModel->countAll(),
+            'recent_books' => $this->bookModel->orderBy('created_at', 'DESC')->limit(5)->findAll()
         ];
 
-        return view('admin/layout/header', $data)
-             . view('admin/dashboard/index', $data)
-             . view('admin/layout/footer');
+        return view('admin/dashboard/dashboard', $data);
     }
 }

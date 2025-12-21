@@ -1,22 +1,6 @@
-</main>
-    </div>
-
-    <script>
-        // Confirmação de exclusão
-        function confirmDelete(message = 'Tem certeza que deseja excluir?') {
-            return confirm(message);
-        }
-
-        // Auto-hide alerts após 5 segundos
-        setTimeout(() => {
-            const alerts = document.querySelectorAll('.alert');
-            alerts.forEach(alert => {
-                alert.style.transition = 'opacity 0.5s';
-                alert.style.opacity = '0';
-                setTimeout(() => alert.remove(), 500);
-            });
-        }, 5000);
-    </script>
-
-</body>
-</html>
+<aside class="w-64 bg-gray-800 text-white min-h-screen p-4 hidden md:block">
+    <ul>
+        <li class="mb-2"><a href="<?= site_url('admin/dashboard') ?>" class="hover:text-gray-300">Dashboard</a></li>
+        <li class="mb-2"><a href="<?= site_url('admin/users') ?>" class="hover:text-gray-300">Usuários</a></li>
+    </ul>
+</aside>
