@@ -1,212 +1,94 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Admin</title>
-    
+    <title>Register - Glassmorphism</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
         }
-
-        .register-container {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            width: 100%;
-            max-width: 450px;
-            padding: 3rem;
-        }
-
-        .register-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .register-title {
-            font-size: 2rem;
-            color: #2d3748;
-            margin-bottom: 0.5rem;
-        }
-
-        .register-subtitle {
-            color: #718096;
-            font-size: 1rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #2d3748;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.9rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .btn-register {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .btn-register:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-register:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        .alert {
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            border-radius: 8px;
-            font-weight: 500;
-            display: none;
-        }
-
-        .alert.show {
-            display: block;
-        }
-
-        .alert-success {
-            background: #d4edda;
-            color: #155724;
-            border-left: 4px solid #28a745;
-        }
-
-        .alert-error {
-            background: #f8d7da;
-            color: #721c24;
-            border-left: 4px solid #dc3545;
-        }
-
-        .back-link {
-            text-align: center;
-            margin-top: 1.5rem;
-        }
-
-        .back-link a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-
-        .warning-box {
-            background: #fff3cd;
-            border: 2px solid #ffc107;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            color: #856404;
-        }
-
-        .warning-box strong {
-            display: block;
-            margin-bottom: 0.5rem;
+        .bg-custom-gradient {
+            background: #f6f6f6ff;
         }
     </style>
 </head>
-<body>
 
-    <div class="register-container">
-        <div class="register-header">
-            <h1 class="register-title">➕ Cadastrar Admin</h1>
-            <p class="register-subtitle">Crie uma nova conta de administrador</p>
-        </div>
+<body class="bg-custom-gradient min-h-screen flex items-center justify-center">
 
-        <!-- AVISO -->
-        <div class="warning-box">
-            <strong>⚠️ ATENÇÃO:</strong>
-            Esta página deve ser REMOVIDA em produção por questões de segurança!
-        </div>
+    <div class="relative w-full max-w-sm p-10 mx-4 bg-white/20 backdrop-blur-lg border border-black shadow-2xl">
 
-        <!-- ALERTAS -->
-        <div id="alert" class="alert"></div>
+        <h2 class="text-2xl font-bold text-black mb-6 tracking-wider uppercase">
+            Register
+        </h2>
 
-        <!-- FORMULÁRIO -->
-        <form id="registerForm">
-            <div class="form-group">
-                <label class="form-label">👤 Nome Completo</label>
-                <input type="text" 
-                       id="name"
-                       name="name" 
-                       class="form-control" 
-                       placeholder="Digite seu nome completo"
-                       required>
+        <!-- ALERT -->
+        <div id="alert" class="hidden mb-4 p-3 text-sm font-semibold"></div>
+
+        <form id="registerForm" class="space-y-5">
+
+            <!-- NOME -->
+            <div class="relative">
+                <input 
+                    type="text"
+                    name="name"
+                    placeholder="Full name"
+                    required
+                    class="w-full px-4 py-3 bg-white text-black placeholder-black 
+                           focus:outline-none focus:ring-2 focus:ring-black 
+                           transition-all shadow-inner"
+                />
             </div>
 
-            <div class="form-group">
-                <label class="form-label">📧 Email</label>
-                <input type="email" 
-                       id="email"
-                       name="email" 
-                       class="form-control" 
-                       placeholder="seu@email.com"
-                       required>
+            <!-- EMAIL -->
+            <div class="relative">
+                <input 
+                    type="email"
+                    name="email"
+                    placeholder="E-mail address"
+                    required
+                    class="w-full px-4 py-3 bg-white text-black placeholder-black 
+                           focus:outline-none focus:ring-2 focus:ring-black 
+                           transition-all shadow-inner"
+                />
             </div>
 
-            <div class="form-group">
-                <label class="form-label">🔒 Senha</label>
-                <input type="password" 
-                       id="password"
-                       name="password" 
-                       class="form-control" 
-                       placeholder="Mínimo 6 caracteres"
-                       required>
+            <!-- SENHA -->
+            <div class="relative">
+                <input 
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    required
+                    class="w-full px-4 py-3 bg-white text-black placeholder-black 
+                           focus:outline-none focus:ring-2 focus:ring-black 
+                           transition-all shadow-inner"
+                />
             </div>
 
-            <button type="submit" id="btnSubmit" class="btn-register">
-                🚀 Cadastrar Admin
+            <button 
+                type="submit"
+                id="btnSubmit"
+                class="w-full py-2 mt-2 bg-blue-600 hover:bg-blue-700 
+                       text-black font-bold shadow-lg transition-all 
+                       active:scale-[0.98] tracking-widest text-lg"
+            >
+                CRIAR
             </button>
-        </form>
 
-        <div class="back-link">
-            <a href="<?= base_url('admin/login') ?>">← Voltar para o login</a>
-        </div>
+            <p class="text-center text-xs text-black mt-6">
+                Ja tens uma conta?
+                <a href="<?= base_url('admin/login') ?>" 
+                   class="underline font-bold hover:text-gray-800 transition-colors">
+                    Entrar
+                </a>
+            </p>
+
+        </form>
     </div>
 
     <script>
@@ -217,11 +99,9 @@
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            // Desabilita botão
             btnSubmit.disabled = true;
-            btnSubmit.textContent = '⏳ Cadastrando...';
+            btnSubmit.textContent = '⏳ Registering...';
 
-            // Coleta dados
             const formData = new FormData(form);
 
             try {
@@ -233,38 +113,37 @@
                 const result = await response.json();
 
                 if (result.success) {
-                    // Sucesso
-                    alertBox.className = 'alert alert-success show';
-                    alertBox.textContent = '✅ ' + result.message + ' Redirecionando...';
-                    
+                    alertBox.className = 'block mb-4 p-3 bg-green-200 text-green-900';
+                    alertBox.textContent = '✅ ' + result.message;
+
                     form.reset();
-                    
-                    // Redireciona para login após 2 segundos
+
                     setTimeout(() => {
                         window.location.href = '<?= base_url('admin/login') ?>';
                     }, 2000);
+
                 } else {
-                    // Erro
-                    alertBox.className = 'alert alert-error show';
-                    
+                    alertBox.className = 'block mb-4 p-3 bg-red-200 text-red-900';
+
                     if (result.errors) {
-                        let errorMsg = '❌ Erros:\n';
+                        let msg = '❌ ';
                         for (let field in result.errors) {
-                            errorMsg += '• ' + result.errors[field] + '\n';
+                            msg += result.errors[field] + ' ';
                         }
-                        alertBox.textContent = errorMsg;
+                        alertBox.textContent = msg;
                     } else {
                         alertBox.textContent = '❌ ' + result.message;
                     }
-                    
+
                     btnSubmit.disabled = false;
-                    btnSubmit.textContent = '🚀 Cadastrar Admin';
+                    btnSubmit.textContent = 'SIGN UP';
                 }
+
             } catch (error) {
-                alertBox.className = 'alert alert-error show';
-                alertBox.textContent = '❌ Erro ao conectar com o servidor';
+                alertBox.className = 'block mb-4 p-3 bg-red-200 text-red-900';
+                alertBox.textContent = '❌ Server connection error';
                 btnSubmit.disabled = false;
-                btnSubmit.textContent = '🚀 Cadastrar Admin';
+                btnSubmit.textContent = 'SIGN UP';
             }
         });
     </script>
