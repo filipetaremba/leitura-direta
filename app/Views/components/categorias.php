@@ -16,7 +16,6 @@
             <!-- Botão Anterior -->
             <button id="prevBtn" 
                     class="absolute left-0 top-1/2 -translate-y-1/2 z-10 
-                           bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 
                            transition-all duration-200 hidden md:block">
                 <i class="fa-solid fa-chevron-left text-gray-800 text-xl"></i>
             </button>
@@ -24,7 +23,6 @@
             <!-- Botão Próximo -->
             <button id="nextBtn" 
                     class="absolute right-0 top-1/2 -translate-y-1/2 z-10 
-                           bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 
                            transition-all duration-200 hidden md:block">
                 <i class="fa-solid fa-chevron-right text-gray-800 text-xl"></i>
             </button>

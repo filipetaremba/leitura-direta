@@ -15,3 +15,91 @@ in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
 12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
 13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
 14 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\public\\index.php')
+CRITICAL - 2025-12-21 08:38:01 --> ErrorException: Undefined variable $maisLivros
+[Method: GET, Route: /]
+in APPPATH\Views\components\maisLivros.php on line 71.
+ 1 APPPATH\Views\components\maisLivros.php(71): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\app\\Views\\components\\maisLivros.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render()
+ 5 APPPATH\Views\pages\home.php(15): CodeIgniter\View\View->include()
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\app\\Views\\pages\\home.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render()
+ 9 APPPATH\Controllers\Home.php(52): view()
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\public\\index.php')
+CRITICAL - 2025-12-21 08:53:47 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "contate-nos""
+[Method: GET, Route: contate-nos%22]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars()
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle()
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\public\\index.php')
+DEBUG - 2025-12-21 09:31:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-21 09:31:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-21 09:31:44 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'leituradirecta' in C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(201): mysqli->real_connect()
+#1 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\BaseModel.php(715): CodeIgniter\Model->doFirst()
+#6 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\app\Models\AdminModel.php(66): CodeIgniter\BaseModel->first()
+#7 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\app\Models\AdminModel.php(74): App\Models\AdminModel->getByEmail()
+#8 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\app\Controllers\Admin\Auth.php(54): App\Models\AdminModel->verifyCredentials()
+#9 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Auth->attemptLogin()
+#10 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+#11 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+#12 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#14 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\public\index.php(59): CodeIgniter\Boot::bootWeb()
+#15 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('...')
+#16 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'leituradirecta' in C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\BaseModel.php(715): CodeIgniter\Model->doFirst()
+#5 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\app\Models\AdminModel.php(66): CodeIgniter\BaseModel->first()
+#6 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\app\Models\AdminModel.php(74): App\Models\AdminModel->getByEmail()
+#7 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\app\Controllers\Admin\Auth.php(54): App\Models\AdminModel->verifyCredentials()
+#8 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Auth->attemptLogin()
+#9 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+#10 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+#11 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#13 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\public\index.php(59): CodeIgniter\Boot::bootWeb()
+#14 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('...')
+#15 {main}
+CRITICAL - 2025-12-21 09:31:44 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'leituradirecta'
+[Method: POST, Route: admin/login]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(715): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Models\AdminModel.php(66): CodeIgniter\BaseModel->first()
+ 6 APPPATH\Models\AdminModel.php(74): App\Models\AdminModel->getByEmail()
+ 7 APPPATH\Controllers\Admin\Auth.php(54): App\Models\AdminModel->verifyCredentials()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Auth->attemptLogin()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\public\\index.php')

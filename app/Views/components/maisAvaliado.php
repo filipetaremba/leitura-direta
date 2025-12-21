@@ -48,20 +48,18 @@
         <!-- Container do Slider -->
         <div class="relative">
             <!-- Botão Anterior -->
-            <button id="prevBtnLivros" 
-                    class="absolute left-0 top-1/2 -translate-y-1/2 z-10 
-                           bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 
-                           transition-all duration-200 hidden md:block">
+            <button id="prevBtnLivros"
+                class="absolute left-0 top-1/2 -translate-y-1/2 z-10 
+                    p-3 transition-all duration-200 hidden md:block">
                 <i class="fa-solid fa-chevron-left text-gray-800 text-xl"></i>
             </button>
 
-            <!-- Botão Próximo -->
-            <button id="nextBtnLivros" 
-                    class="absolute right-0 top-1/2 -translate-y-1/2 z-10 
-                           bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 
-                           transition-all duration-200 hidden md:block">
+            <button id="nextBtnLivros"
+                class="absolute right-0 top-1/2 -translate-y-1/2 z-10 
+                    p-3 transition-all duration-200 hidden md:block">
                 <i class="fa-solid fa-chevron-right text-gray-800 text-xl"></i>
             </button>
+
 
             <!-- Slider -->
             <div class="overflow-hidden mx-12 md:mx-16 slider-container-mobile">

@@ -1,19 +1,19 @@
 
 <!-- Top Navigation - Only Desktop -->
-<div class="bg-gray-200 border-b border-gray-300 hidden lg:block">
+<div class="bg-blue-600 border-b border-gray-300 hidden lg:block">
     <div class="max-w-7xl mx-auto px-4  flex justify-between items-center">
-        <div class="text-sm text-gray-700 flex items-center">
+        <div class="text-sm text-white flex items-center">
             <i class="fas fa-envelope mr-2"></i>
             contato@travessa.com.br
         </div>
         <div class="flex space-x-4">
-            <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors duration-200 p-2 hover:scale-110" aria-label="Facebook">
+            <a href="#" class="text-white hover:text-blue-600 transition-colors duration-200 p-2 hover:scale-110" aria-label="Facebook">
                 <i class="fab fa-facebook text-lg"></i>
             </a>
-            <a href="#" class="text-gray-700 hover:text-green-600 transition-colors duration-200 p-2 hover:scale-110" aria-label="WhatsApp">
+            <a href="#" class="text-white hover:text-green-600 transition-colors duration-200 p-2 hover:scale-110" aria-label="WhatsApp">
                 <i class="fab fa-whatsapp text-lg"></i>
             </a>
-            <a href="#" class="text-gray-700 hover:text-pink-600 transition-colors duration-200 p-2 hover:scale-110" aria-label="Instagram">
+            <a href="#" class="text-white hover:text-pink-600 transition-colors duration-200 p-2 hover:scale-110" aria-label="Instagram">
                 <i class="fab fa-instagram text-lg"></i>
             </a>
         </div>
@@ -66,7 +66,7 @@
 </header>
 
 <!-- Navigation Menu - Sticky on Mobile -->
-<nav class="bg-white border-b-2 border-[#0a66c2] shadow-sm sticky top-0 z-40">
+<nav class="bg-[#0a66c2] border-b-2 border-[#0a66c2] shadow-sm sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 py-4 lg:py-0 ">
         <div class="flex items-center gap-3 ">
             <!-- Mobile Menu Button -->
@@ -91,19 +91,19 @@
 
             <!-- Desktop Menu -->
             <div class="hidden lg:flex items-center space-x-1 mx-auto">
-                <a href="<?= base_url('/') ?>" class="px-6 py-4 text-sm font-bold text-gray-700 hover:text-[#0a66c2] hover:bg-gray-50 transition-all relative group rounded">
+                <a href="<?= base_url('/') ?>" class="px-6 py-4 text-sm font-bold text-white hover:text-[#0a66c2] transition-all relative group rounded">
                     HOME
                     <span class="absolute bottom-0 left-0 w-full h-1 bg-[#0a66c2] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                 </a>
-                <a href="<?= base_url('todos-livros') ?>" class="px-6 py-4 text-sm font-bold text-gray-700 hover:text-[#0a66c2] hover:bg-gray-50 transition-all relative group rounded">
+                <a href="<?= base_url('todos-livros') ?>" class="px-6 py-4 text-sm font-bold text-white hover:text-[#0a66c2] transition-all relative group rounded">
                     TODOS LIVROS
                     <span class="absolute bottom-0 left-0 w-full h-1 bg-[#0a66c2] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                 </a>
-                <a href="<?= base_url('sobre-nos') ?>" class="px-6 py-4 text-sm font-bold text-gray-700 hover:text-[#0a66c2] hover:bg-gray-50 transition-all relative group rounded">
+                <a href="<?= base_url('sobre-nos') ?>" class="px-6 py-4 text-sm font-bold text-white hover:text-[#0a66c2] transition-all relative group rounded">
                     SOBRE NÓS
                     <span class="absolute bottom-0 left-0 w-full h-1 bg-[#0a66c2] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                 </a>
-                <a href=<?= base_url('contate-nos') ?>" class="px-6 py-4 text-sm font-bold text-gray-700 hover:text-[#0a66c2] hover:bg-gray-50 transition-all relative group rounded">
+                <a href=<?= base_url('contate-nos') ?>" class="px-6 py-4 text-sm font-bold text-white hover:text-[#0a66c2] transition-all relative group rounded">
                     CONTATE-NOS
                     <span class="absolute bottom-0 left-0 w-full h-1 bg-[#0a66c2] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                 </a>
@@ -113,16 +113,16 @@
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden lg:hidden pb-4 border-t border-gray-200 slide-down">
             <div class="flex flex-col space-y-1 mt-4">
-                <a href="<?= base_url('/') ?>" class="px-4 py-3 hover:bg-gray-50 hover:text-[#0a66c2] transition-all font-bold text-sm border-l-4 border-transparent hover:border-[#0a66c2] rounded-r min-h-[44px] flex items-center active:bg-gray-100">
+                <a href="<?= base_url('/') ?>" class="px-4 py-3 hover:text-[#0a66c2] transition-all font-bold text-sm border-l-4 border-transparent hover:border-[#0a66c2] rounded-r min-h-[44px] flex items-center active:bg-gray-100">
                     HOME
                 </a>
-                <a href="<?= base_url('todos-livros') ?>" class="px-4 py-3 hover:bg-gray-50 hover:text-[#0a66c2] transition-all font-bold text-sm border-l-4 border-transparent hover:border-[#0a66c2] rounded-r min-h-[44px] flex items-center active:bg-gray-100">
+                <a href="<?= base_url('todos-livros') ?>" class="px-4 py-3 hover:text-[#0a66c2] transition-all font-bold text-sm border-l-4 border-transparent hover:border-[#0a66c2] rounded-r min-h-[44px] flex items-center active:bg-gray-100">
                     TODOS LIVROS
                 </a>
-                <a href="<?= base_url('sobre-nos') ?>" class="px-4 py-3 hover:bg-gray-50 hover:text-[#0a66c2] transition-all font-bold text-sm border-l-4 border-transparent hover:border-[#0a66c2] rounded-r min-h-[44px] flex items-center active:bg-gray-100">
+                <a href="<?= base_url('sobre-nos') ?>" class="px-4 py-3 hover:text-[#0a66c2] transition-all font-bold text-sm border-l-4 border-transparent hover:border-[#0a66c2] rounded-r min-h-[44px] flex items-center active:bg-gray-100">
                     SOBRE NÓS
                 </a>
-                <a href="<?= base_url('contate-nos') ?>" class="px-4 py-3 hover:bg-gray-50 hover:text-[#0a66c2] transition-all font-bold text-sm border-l-4 border-transparent hover:border-[#0a66c2] rounded-r min-h-[44px] flex items-center active:bg-gray-100">
+                <a href="<?= base_url('contate-nos') ?>" class="px-4 py-3 hover:text-[#0a66c2] transition-all font-bold text-sm border-l-4 border-transparent hover:border-[#0a66c2] rounded-r min-h-[44px] flex items-center active:bg-gray-100">
                     CONTATE-NOS
                 </a>
             </div>

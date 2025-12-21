@@ -45,6 +45,8 @@ class Home extends BaseController
         // Passando para a view
 
         $data = [
+            'maisVendidos' => $livrosMaisAvaliados,
+            'maisLivros' => $livrosMaisAvaliados,
             'maisAvaliados' => $livrosMaisAvaliados,
             'title' => 'Portal dos Livros - Home',
             'showCarousel' => true
