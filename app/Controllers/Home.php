@@ -2,60 +2,77 @@
 
 namespace App\Controllers;
 
-use App\Models\BookModel;
-use App\Models\CategoryModel;
-
 class Home extends BaseController
 {
-    protected $bookModel;
-    protected $categoryModel;
-
-    public function __construct()
-    {
-        $this->bookModel = new BookModel();
-        $this->categoryModel = new CategoryModel();
-    }
-
-    /**
-     * Página inicial - Listagem de todos os livros
-     */
+    // Página inicial - Home
     public function index()
-    {
-        $data = [
-            'title' => 'Catálogo de Livros Digitais',
-            'books' => $this->bookModel->getActiveBooks(),
-            'categories' => $this->categoryModel->getActiveCategories()
+    {      // Dados mockados
+        $livrosMaisAvaliados = [
+            [   'id' => 1,
+                'titulo' => 'No Final Nada Acontece',
+                'autor' => 'Kathryn Nicolai',
+                'preco' => 140,
+                'capa' => 'https://i.pinimg.com/1200x/49/d8/4b/49d84b23e118891d57e77543f25eecb7.jpg',
+                'avaliacao' => 3.5
+            ],['id' => 2,
+                'titulo' => 'Love Theoretica',
+                'autor' => 'Ali Hazelwood',
+                'preco' => 95,
+                'capa' => 'https://i.pinimg.com/1200x/f0/13/16/f01316e6e0f3f52396e9b660e008385c.jpg',
+                'avaliacao' => 3.5
+            ],[ 'id' => 3,
+                'titulo' => 'MindSet',
+                'autor' => 'Carol Dweck',
+                'preco' => 123,
+                'capa' => 'https://i.pinimg.com/1200x/8d/51/86/8d5186c27b8dadcb28aadf7893a5a93b.jpg',
+                'avaliacao' => 3.5
+            ],
+            [   'id' => 4,
+                'titulo' => 'Livro Fantástico',
+                'autor' => 'João Silva',
+                'preco' => 130,
+                'capa' => 'https://i.pinimg.com/736x/1a/91/38/1a91383e1033ba85034f6bff48426bc9.jpg',
+                'avaliacao' => 5
+            ],
         ];
 
-        return view('layout/header', $data)
-             . view('home/index', $data)
-             . view('layout/footer');
+        // Passando para a view
+
+        $data = [
+            'maisAvaliados' => $livrosMaisAvaliados,
+            'title' => 'Portal dos Livros - Home',
+            'showCarousel' => true
+        ];
+        return view('pages/home', $data);
     }
 
-    /**
-     * Listagem de livros por categoria
-     */
-    public function category($categorySlug)
+    // Todos os livros
+    public function todosLivros()
     {
-        // Busca a categoria
-        $category = $this->categoryModel->getCategoryBySlug($categorySlug);
-
-        if (!$category) {
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Categoria não encontrada');
-        }
-
-        // Busca livros da categoria
-        $books = $this->bookModel->getBooksByCategory($categorySlug);
-
         $data = [
-            'title' => $category['name'] . ' - Catálogo',
-            'category' => $category,
-            'books' => $books,
-            'categories' => $this->categoryModel->getActiveCategories()
+            'title' => 'Todos os Livros',
+            'showCarousel' => false
         ];
+        return view('pages/todosLivros', $data);
+    }
 
-        return view('layout/header', $data)
-             . view('home/category', $data)
-             . view('layout/footer');
+    // Sobre nós
+    public function sobreNos()
+    {
+        $data = [
+            'title' => 'Sobre Nós',
+            'showCarousel' => false
+        ];
+        return view('pages/sobrenos', $data);
+    }
+
+    // Contate-nos
+    public function contateNos()
+    {
+        $data = [
+            'title' => 'Contate-Nos',
+            'showCarousel' => false
+        ];
+        return view('pages/contactenos', $data);
     }
 }

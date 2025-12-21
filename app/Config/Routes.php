@@ -9,15 +9,18 @@ use CodeIgniter\Router\RouteCollection;
 // ==================================================
 // ROTAS PÚBLICAS
 // ==================================================
-
 // Home
 $routes->get('/', 'Home::index');
 
-// Categoria
-$routes->get('categoria/(:segment)', 'Home::category/$1');
+// Todos os livros
+$routes->get('todos-livros', 'Home::todosLivros');
+$routes->get('livro/(:num)', 'LivroController::show/$1');
 
-// Livro individual
-$routes->get('livro/(:segment)', 'Book::show/$1');
+// Sobre nós
+$routes->get('sobre-nos', 'Home::sobreNos');
+
+// Contate-nos
+$routes->get('contate-nos', 'Home::contateNos');
 
 // ==================================================
 // ROTAS DE AUTENTICAÇÃO ADMIN (SEM PROTEÇÃO)
@@ -57,3 +60,7 @@ $routes->group('admin', ['filter' => 'adminauth'], function($routes) {
     $routes->get('categories/delete/(:num)', 'Admin\Categories::delete/$1');
     $routes->get('categories/toggle-status/(:num)', 'Admin\Categories::toggleStatus/$1');
 });
+
+
+//ROTA DE TESTE
+$routes->get('teste', 'Home::teste');

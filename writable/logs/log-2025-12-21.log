@@ -1,0 +1,17 @@
+CRITICAL - 2025-12-21 03:31:27 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "components\maisVendido.php"
+[Method: GET, Route: /]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render()
+ 3 APPPATH\Views\pages\home.php(14): CodeIgniter\View\View->include()
+ 4 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\app\\Views\\pages\\home.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render()
+ 7 APPPATH\Controllers\Home.php(46): view()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\public\\index.php')
