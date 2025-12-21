@@ -1,4 +1,5 @@
 <?php
+// app/Controllers/Admin/Categories.php
 
 namespace App\Controllers\Admin;
 
@@ -20,28 +21,11 @@ class Categories extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Gerenciar Categorias - Admin',
+            'page_title' => 'Gerenciar Categorias',
             'categories' => $this->categoryModel->getCategoriesWithBookCount()
         ];
 
-        return view('admin/layout/header', $data)
-             . view('admin/categories/index', $data)
-             . view('admin/layout/footer');
-    }
-
-    /**
-     * Formulário de criação
-     */
-    public function create()
-    {
-        $data = [
-            'title' => 'Nova Categoria - Admin',
-            'validation' => \Config\Services::validation()
-        ];
-
-        return view('admin/layout/header', $data)
-             . view('admin/categories/create', $data)
-             . view('admin/layout/footer');
+        return view('admin/categories/index', $data);
     }
 
     /**
@@ -66,7 +50,7 @@ class Categories extends BaseController
         ];
 
         if ($this->categoryModel->insert($categoryData)) {
-            return redirect()->to('/admin/categories')->with('success', 'Categoria cadastrada com sucesso!');
+            return redirect()->to('admin/categories')->with('success', 'Categoria cadastrada com sucesso!');
         }
 
         return redirect()->back()->withInput()->with('error', 'Erro ao cadastrar categoria.');
@@ -84,14 +68,11 @@ class Categories extends BaseController
         }
 
         $data = [
-            'title' => 'Editar Categoria - Admin',
-            'category' => $category,
-            'validation' => \Config\Services::validation()
+            'page_title' => 'Editar Categoria',
+            'category' => $category
         ];
 
-        return view('admin/layout/header', $data)
-             . view('admin/categories/edit', $data)
-             . view('admin/layout/footer');
+        return view('admin/categories/edit', $data);
     }
 
     /**
@@ -122,7 +103,7 @@ class Categories extends BaseController
         ];
 
         if ($this->categoryModel->update($id, $categoryData)) {
-            return redirect()->to('/admin/categories')->with('success', 'Categoria atualizada com sucesso!');
+            return redirect()->to('admin/categories')->with('success', 'Categoria atualizada com sucesso!');
         }
 
         return redirect()->back()->withInput()->with('error', 'Erro ao atualizar categoria.');
@@ -136,22 +117,21 @@ class Categories extends BaseController
         $category = $this->categoryModel->find($id);
 
         if (!$category) {
-            return redirect()->to('/admin/categories')->with('error', 'Categoria não encontrada.');
+            return redirect()->to('admin/categories')->with('error', 'Categoria não encontrada.');
         }
 
-        // Verifica se há livros vinculados
         $bookModel = new \App\Models\BookModel();
         $booksCount = $bookModel->where('category_id', $id)->countAllResults();
 
         if ($booksCount > 0) {
-            return redirect()->to('/admin/categories')->with('error', "Não é possível deletar. Existem {$booksCount} livros vinculados a esta categoria.");
+            return redirect()->to('admin/categories')->with('error', "Não é possível deletar. Existem {$booksCount} livros vinculados a esta categoria.");
         }
 
         if ($this->categoryModel->delete($id)) {
-            return redirect()->to('/admin/categories')->with('success', 'Categoria deletada com sucesso!');
+            return redirect()->to('admin/categories')->with('success', 'Categoria deletada com sucesso!');
         }
 
-        return redirect()->to('/admin/categories')->with('error', 'Erro ao deletar categoria.');
+        return redirect()->to('admin/categories')->with('error', 'Erro ao deletar categoria.');
     }
 
     /**
@@ -162,16 +142,16 @@ class Categories extends BaseController
         $category = $this->categoryModel->find($id);
 
         if (!$category) {
-            return redirect()->to('/admin/categories')->with('error', 'Categoria não encontrada.');
+            return redirect()->to('admin/categories')->with('error', 'Categoria não encontrada.');
         }
 
         $newStatus = ($category['status'] === 'active') ? 'inactive' : 'active';
 
         if ($this->categoryModel->update($id, ['status' => $newStatus])) {
             $message = ($newStatus === 'active') ? 'Categoria ativada!' : 'Categoria desativada!';
-            return redirect()->to('/admin/categories')->with('success', $message);
+            return redirect()->to('admin/categories')->with('success', $message);
         }
 
-        return redirect()->to('/admin/categories')->with('error', 'Erro ao alterar status.');
+        return redirect()->to('admin/categories')->with('error', 'Erro ao alterar status.');
     }
 }
