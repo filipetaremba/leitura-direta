@@ -13,6 +13,7 @@
 <?=  $this->include('components\maisAvaliado') ?>
 <?=  $this->include('components\maisVendidos') ?>
 <?=  $this->include('components\banner') ?>
+<?=  $this->include('components\categorias') ?>
 
 <?= $this->endSection() ?>
 
