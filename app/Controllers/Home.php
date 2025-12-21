@@ -33,7 +33,13 @@ class Home extends BaseController
                 'preco' => 130,
                 'capa' => 'https://i.pinimg.com/736x/1a/91/38/1a91383e1033ba85034f6bff48426bc9.jpg',
                 'avaliacao' => 5
-            ],
+            ],[   'id' => 4,
+                'titulo' => 'Livro Fantástico',
+                'autor' => 'João Silva',
+                'preco' => 130,
+                'capa' => 'https://i.pinimg.com/736x/1a/91/38/1a91383e1033ba85034f6bff48426bc9.jpg',
+                'avaliacao' => 5
+            ]
         ];
 
         // Passando para a view
