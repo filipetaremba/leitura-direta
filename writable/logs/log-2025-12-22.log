@@ -437,3 +437,33 @@ in APPPATH\Views\pages\livro_individual.php on line 146.
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
 12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\public\\index.php')
+CRITICAL - 2025-12-22 20:47:27 --> ErrorException: Undefined variable $categories
+[Method: GET, Route: todos-livros]
+in APPPATH\Views\pages\todosLivros.php on line 31.
+ 1 APPPATH\Views\pages\todosLivros.php(31): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\app\\Views\\pages\\todosLivros.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render()
+ 5 APPPATH\Controllers\Home.php(44): view()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->todosLivros()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\public\\index.php')
+CRITICAL - 2025-12-22 20:54:06 --> ErrorException: Undefined property: CodeIgniter\View\View::$request
+[Method: GET, Route: todos-livros]
+in APPPATH\Views\pages\todosLivros.php on line 64.
+ 1 APPPATH\Views\pages\todosLivros.php(64): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\app\\Views\\pages\\todosLivros.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render()
+ 5 APPPATH\Controllers\Home.php(50): view()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->todosLivros()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\public\\index.php')

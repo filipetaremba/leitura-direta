@@ -37,9 +37,15 @@ class Home extends BaseController
     // Todos os livros
     public function todosLivros()
     {
+        $categoryModel = model('App\\Models\\CategoryModel');
+        $categories = $categoryModel->getActiveCategories();
+        $bookModel = model('App\\Models\\BookModel');
+        $livros = $bookModel->getActiveBooks();
         $data = [
             'title' => 'Todos os Livros',
-            'showCarousel' => false
+            'showCarousel' => false,
+            'categories' => $categories,
+            'livros' => $livros
         ];
         return view('pages/todosLivros', $data);
     }
