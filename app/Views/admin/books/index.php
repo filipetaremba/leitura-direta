@@ -1,3 +1,4 @@
+<!-- app/Views/admin/books/index.php -->
 <?= $this->extend('admin/layout/base') ?>
 <?= $this->section('content') ?>
 
@@ -46,7 +47,19 @@
             <?php foreach($books as $book): ?>
             <tr class="border-b border-gray-200 hover:bg-gray-50">
                 <td class="px-4 py-3 text-gray-600"><?= str_pad($book['id'], 3, '0', STR_PAD_LEFT) ?></td>
-                <td class="px-4 py-3 text-gray-900 font-medium"><?= esc($book['title']) ?></td>
+                <td class="px-4 py-3">
+                    <div class="flex items-center gap-3">
+                        <?php if($book['cover_image']): ?>
+                            <?php 
+                            $imageSrc = filter_var($book['cover_image'], FILTER_VALIDATE_URL) 
+                                ? $book['cover_image'] 
+                                : base_url('uploads/covers/' . $book['cover_image']);
+                            ?>
+                            <img src="<?= $imageSrc ?>" alt="<?= esc($book['title']) ?>" class="w-12 h-16 object-cover border border-gray-300">
+                        <?php endif; ?>
+                        <span class="text-gray-900 font-medium"><?= esc($book['title']) ?></span>
+                    </div>
+                </td>
                 <td class="px-4 py-3 text-gray-600"><?= esc($book['author']) ?></td>
                 <td class="px-4 py-3 text-gray-600"><?= esc($book['category_name'] ?? 'N/A') ?></td>
                 <td class="px-4 py-3 text-gray-600">R$ <?= number_format($book['price'], 2, ',', '.') ?></td>

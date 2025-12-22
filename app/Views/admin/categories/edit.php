@@ -1,4 +1,4 @@
-<?= $this->extend('admin/layout/base') ?>
+<?= $this->extend('admin/templates/layout') ?>
 <?= $this->section('content') ?>
 
 <div class="mb-6">

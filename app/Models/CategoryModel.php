@@ -28,7 +28,7 @@ class CategoryModel extends Model
     // Validation
     protected $validationRules = [
         'name' => 'required|min_length[3]|max_length[100]',
-        'slug' => 'required|alpha_dash|max_length[120]|is_unique[categories.slug,id,{id}]',
+        // 'slug' => 'required|alpha_dash|max_length[120]|is_unique[categories.slug,id,{id}]',
         'status' => 'required|in_list[active,inactive]'
     ];
 

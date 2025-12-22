@@ -34,7 +34,7 @@ class BookModel extends Model
     protected $validationRules = [
         'category_id' => 'required|numeric|is_not_unique[categories.id]',
         'title' => 'required|min_length[3]|max_length[200]',
-        'slug' => 'required|alpha_dash|max_length[220]|is_unique[books.slug,id,{id}]',
+        // 'slug' => 'required|alpha_dash|max_length[220]|is_unique[books.slug,id,{id}]',
         'author' => 'required|min_length[3]|max_length[150]',
         'description' => 'required|min_length[10]',
         'price' => 'required|decimal|greater_than[0]',

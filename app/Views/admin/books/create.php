@@ -59,10 +59,29 @@
                 </select>
             </div>
             
-            <div>
+            <div class="col-span-2">
                 <label class="block text-gray-700 mb-2">Imagem da Capa <span class="text-red-600">*</span></label>
-                <input type="file" name="cover_image" class="w-full px-4 py-2 border border-gray-300 focus:outline-none focus:border-blue-600" accept="image/*" required>
-                <p class="text-sm text-gray-500 mt-1">JPG, PNG ou WEBP (máx. 2MB)</p>
+                
+                <div class="flex gap-4 mb-3">
+                    <label class="flex items-center">
+                        <input type="radio" name="image_type" value="upload" class="mr-2" checked onchange="toggleImageInput()">
+                        <span class="text-gray-700">Upload de Arquivo</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" name="image_type" value="url" class="mr-2" onchange="toggleImageInput()">
+                        <span class="text-gray-700">URL da Imagem</span>
+                    </label>
+                </div>
+                
+                <div id="upload-input">
+                    <input type="file" name="cover_image" class="w-full px-4 py-2 border border-gray-300 focus:outline-none focus:border-blue-600" accept="image/*">
+                    <p class="text-sm text-gray-500 mt-1">JPG, PNG ou WEBP (máx. 2MB)</p>
+                </div>
+                
+                <div id="url-input" style="display: none;">
+                    <input type="text" name="cover_image_url" class="w-full px-4 py-2 border border-gray-300 focus:outline-none focus:border-blue-600" placeholder="https://exemplo.com/imagem.jpg">
+                    <p class="text-sm text-gray-500 mt-1">Cole a URL completa da imagem</p>
+                </div>
             </div>
         </div>
         
@@ -81,5 +100,28 @@
         </div>
     </form>
 </div>
+
+<script>
+function toggleImageInput() {
+    const imageType = document.querySelector('input[name="image_type"]:checked').value;
+    const uploadInput = document.getElementById('upload-input');
+    const urlInput = document.getElementById('url-input');
+    const uploadFile = document.querySelector('input[name="cover_image"]');
+    const urlField = document.querySelector('input[name="cover_image_url"]');
+    
+    if (imageType === 'upload') {
+        uploadInput.style.display = 'block';
+        urlInput.style.display = 'none';
+        uploadFile.required = true;
+        urlField.required = false;
+        urlField.value = '';
+    } else {
+        uploadInput.style.display = 'none';
+        urlInput.style.display = 'block';
+        uploadFile.required = false;
+        urlField.required = true;
+    }
+}
+</script>
 
 <?= $this->endSection() ?>

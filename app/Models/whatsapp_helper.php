@@ -21,7 +21,7 @@ if (!function_exists('generate_whatsapp_link')) {
         $message .= "Tenho interesse no livro:\n\n";
         $message .= "📚 *{$book['title']}*\n";
         $message .= "✍️ Autor: {$book['author']}\n";
-        $message .= "💰 Preço: R$ " . number_format($book['price'], 2, ',', '.') . "\n\n";
+        $message .= "💰 Preço: MT " . number_format($book['price'], 2, ',', '.') . "\n\n";
         $message .= "🔗 Link: " . base_url("livro/{$book['slug']}") . "\n\n";
         $message .= "Gostaria de mais informações!";
         
@@ -42,7 +42,7 @@ if (!function_exists('format_price')) {
      */
     function format_price($price)
     {
-        return 'R$ ' . number_format($price, 2, ',', '.');
+        return 'MT ' . number_format($price, 2, ',', '.');
     }
 }
 

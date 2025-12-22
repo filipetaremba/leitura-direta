@@ -120,6 +120,9 @@ class Books extends BaseController
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Livro não encontrado');
         }
 
+        // Validação condicional da imagem
+        $imageType = $this->request->getPost('image_type');
+        
         $rules = [
             'category_id' => 'required|is_not_unique[categories.id]',
             'title' => 'required|min_length[3]|max_length[200]',
@@ -128,10 +131,14 @@ class Books extends BaseController
             'price' => 'required|decimal|greater_than[0]',
             'status' => 'required|in_list[active,inactive]'
         ];
-
-        $coverImage = $this->request->getFile('cover_image');
-        if ($coverImage && $coverImage->isValid()) {
-            $rules['cover_image'] = 'max_size[cover_image,2048]|is_image[cover_image]|mime_in[cover_image,image/jpg,image/jpeg,image/png,image/webp]';
+        
+        if ($imageType === 'upload') {
+            $coverImage = $this->request->getFile('cover_image');
+            if ($coverImage && $coverImage->isValid()) {
+                $rules['cover_image'] = 'max_size[cover_image,2048]|is_image[cover_image]|mime_in[cover_image,image/jpg,image/jpeg,image/png,image/webp]';
+            }
+        } elseif ($imageType === 'url') {
+            $rules['cover_image_url'] = 'required|valid_url';
         }
 
         if (!$this->validate($rules)) {
@@ -147,18 +154,50 @@ class Books extends BaseController
             'status' => $this->request->getPost('status')
         ];
 
-        if ($coverImage && $coverImage->isValid() && !$coverImage->hasMoved()) {
-            if ($book['cover_image'] && file_exists(FCPATH . 'uploads/covers/' . $book['cover_image'])) {
-                unlink(FCPATH . 'uploads/covers/' . $book['cover_image']);
+        // Processa nova imagem se fornecida
+        if ($imageType === 'upload') {
+            $coverImage = $this->request->getFile('cover_image');
+            if ($coverImage && $coverImage->isValid() && !$coverImage->hasMoved()) {
+                // Remove imagem antiga se for arquivo local
+                if ($book['cover_image'] && !filter_var($book['cover_image'], FILTER_VALIDATE_URL)) {
+                    $oldPath = FCPATH . 'uploads/covers/' . $book['cover_image'];
+                    if (file_exists($oldPath)) {
+                        unlink($oldPath);
+                    }
+                }
+
+                $coverName = $coverImage->getRandomName();
+                $coverImage->move(FCPATH . 'uploads/covers', $coverName);
+                $bookData['cover_image'] = $coverName;
             }
-
-            $coverName = $coverImage->getRandomName();
-            $coverImage->move(FCPATH . 'uploads/covers', $coverName);
-            $bookData['cover_image'] = $coverName;
+        } 
+        elseif ($imageType === 'url') {
+            $urlImage = $this->request->getPost('cover_image_url');
+            if ($urlImage) {
+                // Remove imagem antiga se for arquivo local
+                if ($book['cover_image'] && !filter_var($book['cover_image'], FILTER_VALIDATE_URL)) {
+                    $oldPath = FCPATH . 'uploads/covers/' . $book['cover_image'];
+                    if (file_exists($oldPath)) {
+                        unlink($oldPath);
+                    }
+                }
+                
+                $bookData['cover_image'] = $urlImage;
+            }
         }
+        // Se imageType === 'keep', não faz nada (mantém a atual)
 
+        // Desabilita validação do Model
+        $this->bookModel->skipValidation(true);
+        
         if ($this->bookModel->update($id, $bookData)) {
             return redirect()->to('admin/books')->with('success', 'Livro atualizado com sucesso!');
+        }
+
+        // Pega os erros do Model se houver
+        $errors = $this->bookModel->errors();
+        if (!empty($errors)) {
+            return redirect()->back()->withInput()->with('errors', $errors);
         }
 
         return redirect()->back()->withInput()->with('error', 'Erro ao atualizar livro.');

@@ -59,15 +59,47 @@
                 </select>
             </div>
             
-            <div>
+            <div class="col-span-2">
                 <label class="block text-gray-700 mb-2">Imagem da Capa</label>
-                <input type="file" name="cover_image" class="w-full px-4 py-2 border border-gray-300 focus:outline-none focus:border-blue-600" accept="image/*">
-                <p class="text-sm text-gray-500 mt-1">Deixe em branco para manter a imagem atual</p>
+                
+                <div class="flex gap-4 mb-3">
+                    <label class="flex items-center">
+                        <input type="radio" name="image_type" value="keep" class="mr-2" checked onchange="toggleImageInputEdit()">
+                        <span class="text-gray-700">Manter Atual</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" name="image_type" value="upload" class="mr-2" onchange="toggleImageInputEdit()">
+                        <span class="text-gray-700">Upload Novo</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" name="image_type" value="url" class="mr-2" onchange="toggleImageInputEdit()">
+                        <span class="text-gray-700">URL da Imagem</span>
+                    </label>
+                </div>
+                
                 <?php if($book['cover_image']): ?>
-                <div class="mt-2">
-                    <img src="<?= base_url('uploads/covers/' . $book['cover_image']) ?>" alt="Capa atual" class="h-32 border border-gray-300">
+                <div id="current-image" class="mb-3">
+                    <?php 
+                    $imageSrc = filter_var($book['cover_image'], FILTER_VALIDATE_URL) 
+                        ? $book['cover_image'] 
+                        : base_url('uploads/covers/' . $book['cover_image']);
+                    ?>
+                    <img src="<?= $imageSrc ?>" alt="Capa atual" class="h-32 border border-gray-300">
+                    <p class="text-sm text-gray-500 mt-1">
+                        <?= filter_var($book['cover_image'], FILTER_VALIDATE_URL) ? 'Imagem externa (URL)' : 'Arquivo local' ?>
+                    </p>
                 </div>
                 <?php endif; ?>
+                
+                <div id="upload-input-edit" style="display: none;">
+                    <input type="file" name="cover_image" class="w-full px-4 py-2 border border-gray-300 focus:outline-none focus:border-blue-600" accept="image/*">
+                    <p class="text-sm text-gray-500 mt-1">JPG, PNG ou WEBP (máx. 2MB)</p>
+                </div>
+                
+                <div id="url-input-edit" style="display: none;">
+                    <input type="text" name="cover_image_url" class="w-full px-4 py-2 border border-gray-300 focus:outline-none focus:border-blue-600" placeholder="https://exemplo.com/imagem.jpg">
+                    <p class="text-sm text-gray-500 mt-1">Cole a URL completa da imagem</p>
+                </div>
             </div>
         </div>
         
@@ -87,4 +119,38 @@
     </form>
 </div>
 
+<script>
+function toggleImageInputEdit() {
+    const imageType = document.querySelector('input[name="image_type"]:checked').value;
+    const currentImage = document.getElementById('current-image');
+    const uploadInput = document.getElementById('upload-input-edit');
+    const urlInput = document.getElementById('url-input-edit');
+    const uploadFile = document.querySelector('input[name="cover_image"]');
+    const urlField = document.querySelector('input[name="cover_image_url"]');
+    
+    if (imageType === 'keep') {
+        if(currentImage) currentImage.style.display = 'block';
+        uploadInput.style.display = 'none';
+        urlInput.style.display = 'none';
+        uploadFile.required = false;
+        urlField.required = false;
+        urlField.value = '';
+    } else if (imageType === 'upload') {
+        if(currentImage) currentImage.style.display = 'none';
+        uploadInput.style.display = 'block';
+        urlInput.style.display = 'none';
+        uploadFile.required = false;
+        urlField.required = false;
+        urlField.value = '';
+    } else {
+        if(currentImage) currentImage.style.display = 'none';
+        uploadInput.style.display = 'none';
+        urlInput.style.display = 'block';
+        uploadFile.required = false;
+        urlField.required = false;
+    }
+}
+</script>
+
 <?= $this->endSection() ?>
+
