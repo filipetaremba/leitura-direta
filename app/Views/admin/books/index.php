@@ -61,7 +61,7 @@
                 </td>
                 <td class="px-4 py-3 text-gray-600"><?= esc($book['author']) ?></td>
                 <td class="px-4 py-3 text-gray-600"><?= esc($book['category_name'] ?? 'N/A') ?></td>
-                <td class="px-4 py-3 text-gray-600">R$ <?= number_format($book['price'], 2, ',', '.') ?></td>
+                <td class="px-4 py-3 text-gray-600">MT <?= number_format($book['price'], 2, ',', '.') ?></td>
                 <td class="px-4 py-3">
                     <span class="px-3 py-1 <?= $book['status'] == 'active' ? 'bg-blue-600' : 'bg-gray-400' ?> text-white text-sm">
                         <?= $book['status'] == 'active' ? 'Ativo' : 'Inativo' ?>
