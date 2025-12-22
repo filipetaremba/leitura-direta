@@ -64,3 +64,6 @@ $routes->group('admin', ['filter' => 'adminauth'], function($routes) {
 
 //ROTA DE TESTE
 $routes->get('teste', 'Home::teste');
+
+// API: Sugestões de pesquisa para barra de busca
+$routes->get('api/search-suggestions', 'Home::searchSuggestions');

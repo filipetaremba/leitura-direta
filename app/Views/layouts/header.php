@@ -33,17 +33,19 @@
 
             <!-- Search Bar - Desktop Only -->
             <div class="hidden lg:flex flex-1 max-w-2xl mx-8">
-                <div class="relative w-full">
+                <form action="<?= base_url('buscar') ?>" method="get" class="relative w-full">
                     <input 
                         type="text" 
+                        name="q"
                         placeholder="Buscar por título, autor, ISBN..." 
                         class="w-full border-2 border-gray-300 rounded-l px-5 py-2.5 text-sm focus:outline-none focus:border-[#0a66c2] focus:ring-2 focus:ring-[#0a66c2] focus:ring-opacity-20 transition-all"
                         aria-label="Campo de busca"
+                        value="<?= esc(service('request')->getGet('q')) ?>"
                     >
-                    <button class="absolute right-0 top-0 h-full px-5 bg-[#0a66c2] text-white hover:bg-[#094d92] rounded-r transition-colors" aria-label="Buscar">
+                    <button type="submit" class="absolute right-0 top-0 h-full px-5 bg-[#0a66c2] text-white hover:bg-[#094d92] rounded-r transition-colors" aria-label="Buscar">
                         <i class="fas fa-search"></i>
                     </button>
-                </div>
+                </form>
             </div>
 
             <!-- User Actions -->
@@ -76,17 +78,19 @@
 
             <!-- Search Bar - Mobile (Always Visible) -->
             <div class="flex-1 lg:hidden">
-                <div class="relative w-full">
+                <form action="<?= base_url('buscar') ?>" method="get" class="relative w-full">
                     <input 
                         type="text" 
+                        name="q"
                         placeholder="Buscar livros..." 
                         class="w-full border-2 border-gray-300 rounded-l px-4 py-2 text-sm focus:outline-none focus:border-[#0a66c2] focus:ring-2 focus:ring-[#0a66c2] focus:ring-opacity-20 transition-all"
                         aria-label="Campo de busca mobile"
+                        value="<?= esc(service('request')->getGet('q')) ?>"
                     >
-                    <button class="absolute right-0 top-0 h-full px-4 bg-[#0a66c2] text-white hover:bg-[#094d92] rounded-r transition-colors" aria-label="Buscar">
+                    <button type="submit" class="absolute right-0 top-0 h-full px-4 bg-[#0a66c2] text-white hover:bg-[#094d92] rounded-r transition-colors" aria-label="Buscar">
                         <i class="fas fa-search"></i>
                     </button>
-                </div>
+                </form>
             </div>
 
             <!-- Desktop Menu -->
@@ -103,7 +107,7 @@
                     SOBRE NÓS
                     <span class="absolute bottom-0 left-0 w-full h-1 bg-[#0a66c2] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                 </a>
-                <a href=<?= base_url('contate-nos') ?>" class="px-6 py-4 text-sm font-bold text-white hover:text-[#0a66c2] transition-all relative group rounded">
+                <a href=<?= base_url('contatenos') ?>" class="px-6 py-4 text-sm font-bold text-white hover:text-[#0a66c2] transition-all relative group rounded">
                     CONTATE-NOS
                     <span class="absolute bottom-0 left-0 w-full h-1 bg-[#0a66c2] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                 </a>
@@ -122,7 +126,7 @@
                 <a href="<?= base_url('sobre-nos') ?>" class="px-4 py-3 hover:text-[#0a66c2] transition-all font-bold text-sm border-l-4 border-transparent hover:border-[#0a66c2] rounded-r min-h-[44px] flex items-center active:bg-gray-100">
                     SOBRE NÓS
                 </a>
-                <a href="<?= base_url('contate-nos') ?>" class="px-4 py-3 hover:text-[#0a66c2] transition-all font-bold text-sm border-l-4 border-transparent hover:border-[#0a66c2] rounded-r min-h-[44px] flex items-center active:bg-gray-100">
+                <a href="<?= base_url('contatenos') ?>" class="px-4 py-3 hover:text-[#0a66c2] transition-all font-bold text-sm border-l-4 border-transparent hover:border-[#0a66c2] rounded-r min-h-[44px] flex items-center active:bg-gray-100">
                     CONTATE-NOS
                 </a>
             </div>

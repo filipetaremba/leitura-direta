@@ -34,6 +34,38 @@ class Home extends BaseController
         return view('pages/home', $data);
     }
 
+    // Endpoint para sugestões de pesquisa (API)
+    public function searchSuggestions()
+    {
+        $query = $this->request->getGet('q');
+        $bookModel = model('App\\Models\\BookModel');
+        $suggestions = [];
+        if ($query && strlen($query) > 1) {
+            // Busca livros cujo título ou autor contenha o termo
+            $books = $bookModel
+                ->select('id, title, author, slug, cover_image')
+                ->groupStart()
+                    ->like('title', $query)
+                    ->orLike('author', $query)
+                ->groupEnd()
+                ->where('status', 'active')
+                ->orderBy('title', 'ASC')
+                ->limit(8)
+                ->findAll();
+            foreach ($books as $book) {
+                $suggestions[] = [
+                    'id' => $book['id'],
+                    'title' => $book['title'],
+                    'author' => $book['author'],
+                    'slug' => $book['slug'],
+                    'cover_image' => $book['cover_image'],
+                    'url' => base_url('livro/' . $book['id'])
+                ];
+            }
+        }
+        return $this->response->setJSON($suggestions);
+    }
+
     // Todos os livros
     public function todosLivros()
     {

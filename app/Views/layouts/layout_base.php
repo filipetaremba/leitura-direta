@@ -198,6 +198,7 @@
     <?= $this->include('layouts/footer') ?>
 
     <!-- JS global -->
+    <script src="<?= base_url('js/search_suggestions.js') ?>"></script>
  
         <script>
 document.addEventListener('DOMContentLoaded', function() {
