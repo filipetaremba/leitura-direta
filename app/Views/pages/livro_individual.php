@@ -10,7 +10,7 @@
             <i class="fa-solid fa-chevron-right text-xs"></i>
             <a href="<?= base_url('autoajuda') ?>" class="hover:text-blue-600 transition-colors">AUTOAJUDA</a>
             <i class="fa-solid fa-chevron-right text-xs"></i>
-            <span class="text-gray-900 font-medium"><?= esc($livro['titulo']) ?></span>
+            <span class="text-gray-900 font-medium"><?= esc($livro['title']) ?></span>
         </nav>
     </div>
 </div>
@@ -23,8 +23,8 @@
             <!-- Coluna Esquerda - Imagem -->
             <div class="flex justify-center lg:justify-start pl-0">
                 <div class="relative group">
-                    <img src="<?= esc($livro['capa']) ?>" 
-                         alt="<?= esc($livro['titulo']) ?>"
+                    <img src="<?= esc($livro['cover_image']) ?>" 
+                        alt="<?= esc($livro['title']) ?>"
                          class="w-full max-w-md rounded-lg shadow-2xl transition-transform duration-300 group-hover:scale-105">
                     
                     <!-- Badge de Desconto (se houver) -->
@@ -41,14 +41,14 @@
                 
                 <!-- Título -->
                 <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                    <?= esc($livro['titulo']) ?>
+                    <?= esc($livro['title']) ?>
                 </h1>
 
                 <!-- Autor -->
                 <div class="mb-6">
-                    <a href="<?= base_url('autor/' . url_title($livro['autor'])) ?>" 
+                    <a href="<?= base_url('autor/' . url_title($livro['author'])) ?>" 
                        class="inline-flex items-center gap-2 bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">
-                        <span class="text-sm font-semibold"><?= esc($livro['autor']) ?></span>
+                        <span class="text-sm font-semibold"><?= esc($livro['author']) ?></span>
                     </a>
                 </div>
 
@@ -67,13 +67,13 @@
                 <!-- Preço -->
                 <div class="mb-8">
                     <div class="flex items-baseline gap-3">
-                        <?php if (isset($livro['preco_original'])): ?>
+                        <?php if (isset($livro['original_price'])): ?>
                         <span class="text-2xl text-gray-400 line-through">
-                            <?= number_format($livro['preco_original'] / 100, 2, ',', '.') ?> MT
+                            <?= number_format($livro['original_price'], 2, ',', '.') ?> MT
                         </span>
                         <?php endif; ?>
                         <span class="text-4xl font-bold text-gray-900">
-                            <?= number_format($livro['preco'] / 100, 2, ',', '.') ?> MT
+                            <?= number_format($livro['price'], 2, ',', '.') ?> MT
                         </span>
                     </div>
                 </div>
@@ -122,7 +122,7 @@
             <h2 class="text-3xl font-bold text-gray-900 mb-6">SINOPSE</h2>
             <div class="prose prose-lg max-w-none">
                 <p class="text-gray-700 leading-relaxed">
-                    <?= esc($livro['descricao']) ?>
+                    <?= esc($livro['description']) ?>
                 </p>
             </div>
         </div>
@@ -143,39 +143,6 @@
                 
                 <?php 
                 // Exemplo de livros relacionados (depois vem do banco)
-                $livrosRelacionados = [
-                    [
-                        'id' => 1,
-                        'titulo' => 'Pequenos Passos para Mudar Sua Vida',
-                        'autor' => 'Robert Maurer',
-                        'capa' => 'https://via.placeholder.com/300x450/4299e1/ffffff?text=Livro+1'
-                    ],
-                    [
-                        'id' => 2,
-                        'titulo' => 'A Tristeza Transforma, a Depressão Paralisa',
-                        'autor' => 'Neury J. Botega',
-                        'capa' => 'https://via.placeholder.com/300x450/10b981/ffffff?text=Livro+2'
-                    ],
-                    [
-                        'id' => 3,
-                        'titulo' => '100 Maneiras de Motivar as Pessoas',
-                        'autor' => 'Steve Chandler e Scott',
-                        'capa' => 'https://via.placeholder.com/300x450/8b5cf6/ffffff?text=Livro+3'
-                    ],
-                    [
-                        'id' => 4,
-                        'titulo' => 'Como Convencer as Pessoas a Fazer o que Você Quer',
-                        'autor' => 'Susan M. Weinschenk',
-                        'capa' => 'https://via.placeholder.com/300x450/f59e0b/ffffff?text=Livro+4'
-                    ],
-                    [
-                        'id' => 5,
-                        'titulo' => 'Pequenas Atitudes, Grandes Mudanças',
-                        'autor' => 'Caroline L. Arnold',
-                        'capa' => 'https://via.placeholder.com/300x450/ec4899/ffffff?text=Livro+5'
-                    ]
-                ];
-
                 foreach ($livrosRelacionados as $livroRel): 
                 ?>
                 
@@ -184,8 +151,8 @@
                     
                     <!-- Imagem -->
                     <div class="relative overflow-hidden aspect-[2/3]">
-                        <img src="<?= esc($livroRel['capa']) ?>" 
-                             alt="<?= esc($livroRel['titulo']) ?>"
+                            <img src="<?= esc($livroRel['cover_image']) ?>" 
+                                alt="<?= esc($livroRel['title']) ?>"
                              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                         
                         <!-- Overlay no hover -->
@@ -211,12 +178,12 @@
 
                         <!-- Título -->
                         <h3 class="font-bold text-gray-900 text-sm mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
-                            <?= esc($livroRel['titulo']) ?>
+                            <?= esc($livroRel['title']) ?>
                         </h3>
 
                         <!-- Autor -->
                         <p class="text-xs text-gray-600 mb-3">
-                            <?= esc($livroRel['autor']) ?>
+                            <?= esc($livroRel['author']) ?>
                         </p>
 
                         <!-- Botão -->

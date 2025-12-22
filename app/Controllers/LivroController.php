@@ -6,16 +6,19 @@ class LivroController extends BaseController
 {
     public function show($id)
     {
-        // depois isso vem do banco
-        $livro = [
-            'id' => $id,
-            'titulo' => 'No Final Nada Acontece',
-            'autor' => 'Kathryn Nicolai',
-            'preco' => 2490,
-            'capa' => 'https://i.pinimg.com/1200x/f0/13/16/f01316e6e0f3f52396e9b660e008385c.jpg',
-            'descricao' => 'Descrição do livro aqui'
-        ];
-
-        return view('pages/livro_individual', ['livro' => $livro]);
+        $bookModel = model('App\\Models\\BookModel');
+        $livro = $bookModel->find($id);
+        if (!$livro) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Livro não encontrado');
+        }
+        // Buscar livros relacionados (mesma categoria, exceto o atual)
+        $livrosRelacionados = [];
+        if (isset($livro['category_id'])) {
+            $livrosRelacionados = $bookModel->getRelatedBooks($livro['category_id'], $livro['id'], 4);
+        }
+        return view('pages/livro_individual', [
+            'livro' => $livro,
+            'livrosRelacionados' => $livrosRelacionados
+        ]);
     }
 }
