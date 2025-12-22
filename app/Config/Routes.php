@@ -20,7 +20,7 @@ $routes->get('livro/(:num)', 'LivroController::show/$1');
 $routes->get('sobre-nos', 'Home::sobreNos');
 
 // Contate-nos
-$routes->get('contate-nos', 'Home::contateNos');
+$routes->get('contatenos', 'Home::contateNos');
 
 // ==================================================
 // ROTAS DE AUTENTICAÇÃO ADMIN (SEM PROTEÇÃO)
