@@ -1,3 +1,4 @@
+<!-- app/Views/admin/books/create.php -->
 <?= $this->extend('admin/layout/base') ?>
 <?= $this->section('content') ?>
 
@@ -113,13 +114,18 @@ function toggleImageInput() {
         uploadInput.style.display = 'block';
         urlInput.style.display = 'none';
         uploadFile.required = true;
+        uploadFile.disabled = false;
         urlField.required = false;
+        urlField.disabled = true;
         urlField.value = '';
     } else {
         uploadInput.style.display = 'none';
         urlInput.style.display = 'block';
         uploadFile.required = false;
+        uploadFile.disabled = true;  // ← IMPORTANTE: desabilita o campo
+        uploadFile.value = '';        // ← IMPORTANTE: limpa o valor
         urlField.required = true;
+        urlField.disabled = false;
     }
 }
 </script>

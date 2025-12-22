@@ -1,4 +1,3 @@
-<!-- app/Views/admin/books/index.php -->
 <?= $this->extend('admin/layout/base') ?>
 <?= $this->section('content') ?>
 

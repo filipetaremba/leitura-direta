@@ -153,4 +153,3 @@ function toggleImageInputEdit() {
 </script>
 
 <?= $this->endSection() ?>
-

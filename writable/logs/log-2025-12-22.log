@@ -1,2 +1,80 @@
 DEBUG - 2025-12-22 06:44:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-12-22 06:44:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:01:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-12-22 18:01:42 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(201): mysqli->real_connect()
+#1 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\BaseModel.php(715): CodeIgniter\Model->doFirst()
+#6 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\app\Models\AdminModel.php(66): CodeIgniter\BaseModel->first()
+#7 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\app\Models\AdminModel.php(74): App\Models\AdminModel->getByEmail()
+#8 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\app\Controllers\Admin\Auth.php(54): App\Models\AdminModel->verifyCredentials()
+#9 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Auth->attemptLogin()
+#10 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+#11 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+#12 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#14 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\public\index.php(59): CodeIgniter\Boot::bootWeb()
+#15 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('...')
+#16 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\BaseModel.php(715): CodeIgniter\Model->doFirst()
+#5 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\app\Models\AdminModel.php(66): CodeIgniter\BaseModel->first()
+#6 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\app\Models\AdminModel.php(74): App\Models\AdminModel->getByEmail()
+#7 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\app\Controllers\Admin\Auth.php(54): App\Models\AdminModel->verifyCredentials()
+#8 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Admin\Auth->attemptLogin()
+#9 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+#10 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+#11 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#13 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\public\index.php(59): CodeIgniter\Boot::bootWeb()
+#14 C:\Users\Taremba\Desktop\PRO UZ\leitura-direta\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('...')
+#15 {main}
+CRITICAL - 2025-12-22 18:01:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: POST, Route: admin/login]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(715): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Models\AdminModel.php(66): CodeIgniter\BaseModel->first()
+ 6 APPPATH\Models\AdminModel.php(74): App\Models\AdminModel->getByEmail()
+ 7 APPPATH\Controllers\Admin\Auth.php(54): App\Models\AdminModel->verifyCredentials()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\Auth->attemptLogin()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\public\\index.php')
+DEBUG - 2025-12-22 18:02:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:02:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:02:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:02:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:04:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:04:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:04:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:06:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:06:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:22:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:23:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:23:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:23:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:23:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:23:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:23:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:24:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:27:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:27:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:27:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-12-22 18:27:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

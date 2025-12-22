@@ -50,6 +50,8 @@ class Books extends BaseController
      */
     public function store()
     {
+        $imageType = $this->request->getPost('image_type');
+
         $rules = [
             'category_id' => 'required|is_not_unique[categories.id]',
             'title' => 'required|min_length[3]|max_length[200]',
@@ -57,19 +59,27 @@ class Books extends BaseController
             'description' => 'required|min_length[10]',
             'price' => 'required|decimal|greater_than[0]',
             'status' => 'required|in_list[active,inactive]',
-            'cover_image' => 'uploaded[cover_image]|max_size[cover_image,2048]|is_image[cover_image]|mime_in[cover_image,image/jpg,image/jpeg,image/png,image/webp]'
         ];
+
+        if ($imageType === 'upload') {
+            $rules['cover_image'] = 'uploaded[cover_image]|max_size[cover_image,2048]|is_image[cover_image]|mime_in[cover_image,image/jpg,image/jpeg,image/png,image/webp]';
+        } else if ($imageType === 'url') {
+            $rules['cover_image_url'] = 'required|valid_url';
+        }
 
         if (!$this->validate($rules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        $coverImage = $this->request->getFile('cover_image');
         $coverName = null;
-
-        if ($coverImage && $coverImage->isValid() && !$coverImage->hasMoved()) {
-            $coverName = $coverImage->getRandomName();
-            $coverImage->move(FCPATH . 'uploads/covers', $coverName);
+        if ($imageType === 'upload') {
+            $coverImage = $this->request->getFile('cover_image');
+            if ($coverImage && $coverImage->isValid() && !$coverImage->hasMoved()) {
+                $coverName = $coverImage->getRandomName();
+                $coverImage->move(FCPATH . 'uploads/covers', $coverName);
+            }
+        } else if ($imageType === 'url') {
+            $coverName = $this->request->getPost('cover_image_url');
         }
 
         $bookData = [
