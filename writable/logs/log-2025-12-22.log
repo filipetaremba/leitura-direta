@@ -312,3 +312,98 @@ DEBUG - 2025-12-22 19:37:27 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2025-12-22 19:39:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-12-22 19:40:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2025-12-22 19:40:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-12-22 19:43:22 --> ErrorException: Undefined array key "capa"
+[Method: GET, Route: /]
+in APPPATH\Views\components\maisAvaliado.php on line 77.
+ 1 APPPATH\Views\components\maisAvaliado.php(77): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\app\\Views\\components\\maisAvaliado.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render()
+ 5 APPPATH\Views\pages\home.php(10): CodeIgniter\View\View->include()
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\app\\Views\\pages\\home.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render()
+ 9 APPPATH\Controllers\Home.php(34): view()
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\public\\index.php')
+CRITICAL - 2025-12-22 19:44:12 --> ErrorException: Undefined array key "titulo"
+[Method: GET, Route: /]
+in APPPATH\Views\components\maisAvaliado.php on line 78.
+ 1 APPPATH\Views\components\maisAvaliado.php(78): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\app\\Views\\components\\maisAvaliado.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render()
+ 5 APPPATH\Views\pages\home.php(10): CodeIgniter\View\View->include()
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\app\\Views\\pages\\home.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render()
+ 9 APPPATH\Controllers\Home.php(34): view()
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\public\\index.php')
+CRITICAL - 2025-12-22 19:45:35 --> ErrorException: Undefined array key "autor"
+[Method: GET, Route: /]
+in APPPATH\Views\components\maisAvaliado.php on line 87.
+ 1 APPPATH\Views\components\maisAvaliado.php(87): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\app\\Views\\components\\maisAvaliado.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render()
+ 5 APPPATH\Views\pages\home.php(10): CodeIgniter\View\View->include()
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\app\\Views\\pages\\home.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render()
+ 9 APPPATH\Controllers\Home.php(34): view()
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\public\\index.php')
+CRITICAL - 2025-12-22 19:47:30 --> ErrorException: Undefined array key "capa"
+[Method: GET, Route: /]
+in APPPATH\Views\components\maisAvaliado.php on line 77.
+ 1 APPPATH\Views\components\maisAvaliado.php(77): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\app\\Views\\components\\maisAvaliado.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render()
+ 5 APPPATH\Views\pages\home.php(10): CodeIgniter\View\View->include()
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\app\\Views\\pages\\home.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render()
+ 9 APPPATH\Controllers\Home.php(34): view()
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\public\\index.php')
+CRITICAL - 2025-12-22 19:47:32 --> ErrorException: Undefined array key "capa"
+[Method: GET, Route: /]
+in APPPATH\Views\components\maisAvaliado.php on line 77.
+ 1 APPPATH\Views\components\maisAvaliado.php(77): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\app\\Views\\components\\maisAvaliado.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render()
+ 5 APPPATH\Views\pages\home.php(10): CodeIgniter\View\View->include()
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\app\\Views\\pages\\home.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render()
+ 9 APPPATH\Controllers\Home.php(34): view()
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Taremba\\Desktop\\PRO UZ\\leitura-direta\\public\\index.php')

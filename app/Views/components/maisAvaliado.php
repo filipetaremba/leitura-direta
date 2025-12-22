@@ -74,22 +74,22 @@
                            class="book-slider-item block flex-shrink-0 px-2">
                             <div class="bg-white shadow-sm flex flex-col items-center text-center overflow-hidden w-full h-[330px] sm:h-[400px] hover:shadow-lg transition">
                 
-                                <img src="<?= $livro['capa'] ?>" 
-                                    alt="Capa de <?= esc($livro['titulo']) ?>" 
+                                <img src="<?= $livro['cover_image'] ?>" 
+                                    alt="Capa de <?= esc($livro['title']) ?>" 
                                     class="w-full h-[200px] sm:h-[250px] object-cover">
 
                                 <div class="px-2 sm:px-3 py-2 sm:py-3 w-full flex flex-col flex-grow">
                                     <h2 class="text-xs sm:text-sm font-semibold text-gray-800 line-clamp-2">
-                                        <?= esc($livro['titulo']) ?>
+                                        <?= esc($livro['title']) ?>
                                     </h2>
 
                                     <p class="text-gray-500 italic text-xs mt-1 line-clamp-1">
-                                        <?= esc($livro['autor']) ?>
+                                        <?= esc($livro['author']) ?>
                                     </p>
 
                                     <div class="flex justify-center mt-2 text-yellow-400 text-xs sm:text-sm">
                                         <?php 
-                                        $avaliacao = round($livro['avaliacao']);
+                                        $avaliacao = isset($livro['avaliacao']) ? round($livro['avaliacao']) : 0;
                                         for ($i = 1; $i <= 5; $i++) {
                                             echo $i <= $avaliacao ? '★' : '<span class="text-gray-300">★</span>';
                                         }
@@ -97,7 +97,7 @@
                                     </div>
 
                                     <p class="text-blue-600 font-bold text-xs sm:text-sm mt-2">
-                                        MZN <?= number_format($livro['preco'], 2, ',', '.') ?>
+                                        MZN <?= number_format($livro['price'], 2, ',', '.') ?>
                                     </p>
 
                                     <span class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-2 uppercase tracking-wider transition-colors text-xs mt-2 text-center">
