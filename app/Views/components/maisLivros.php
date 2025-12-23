@@ -120,10 +120,10 @@
         </div>
 
         <div class="text-center mt-8">
-            <a href="<?= base_url('livros/mais-livros') ?>" 
-               class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 transition-colors duration-200 shadow-md hover:shadow-lg">
-                Ver Mais
-            </a>
+              <a href="<?= base_url('todos-livros') ?>" 
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 transition-colors duration-200 shadow-md hover:shadow-lg">
+                 Ver Mais
+              </a>
         </div>
     </div>
 </section>

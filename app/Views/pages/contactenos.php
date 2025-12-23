@@ -13,6 +13,10 @@
 </section>
 
 <!-- Informações de Contacto -->
+<div class="mb-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">Endereço</h3>
+    <p class="text-gray-600 mb-2">Moçambique, Beira</p>
+</div>
 <section class="py-16 bg-white">
     <div class="container mx-auto px-4 max-w-7xl">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -32,7 +36,7 @@
                     <i class="fas fa-envelope"></i>
                 </div>
                 <h3 class="text-xl font-bold text-gray-800 mb-2">Email</h3>
-                <p class="text-gray-600 mb-2">contato@portallivros.mz</p>
+                <p class="text-gray-600 mb-2">livro@taresites.com</p>
                 <p class="text-sm text-gray-500">Resposta em até 24h</p>
             </div>
 
